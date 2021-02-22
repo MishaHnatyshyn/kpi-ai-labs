@@ -27,7 +27,9 @@ export const isStateSimilar = (firstState: BucketsState, secondState: BucketsSta
   const secondStateBuckets = Object.values(secondState);
   return Object
     .values(firstState)
-    .every((bucket: Bucket, index: number): boolean => bucket.getCurrentVolume() === secondStateBuckets[index].getCurrentVolume())
+    .every((bucket: Bucket, index: number): boolean => {
+      return bucket.getCurrentVolume() === secondStateBuckets[index].getCurrentVolume()
+    })
 }
 
 /*

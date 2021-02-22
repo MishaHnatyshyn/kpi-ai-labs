@@ -4,7 +4,11 @@ import { Bucket } from './bucket';
 /*
 * Return two buckets after filling or emptying one depends on {fill} argument value
 */
-const getStateWithUpdatedBucketVolume = (state: BucketsState, targetBucket: Bucket, fill: boolean = true): BucketsState => {
+const getStateWithUpdatedBucketVolume = (
+  state: BucketsState,
+  targetBucket: Bucket,
+  fill: boolean = true
+): BucketsState => {
   const buckets = Object.values(state);
   const [firstBucket, secondBucket] = buckets.map((bucket: Bucket): Bucket => {
     return bucket === targetBucket
@@ -20,14 +24,19 @@ const getStateWithUpdatedBucketVolume = (state: BucketsState, targetBucket: Buck
 export const generateOneBucketWaterChangeStates = (state: BucketsState): BucketsState[] => Object
   .values(state)
   .map((bucket: Bucket): BucketsState[] => {
-    return [true, false].map((fill: boolean): BucketsState => getStateWithUpdatedBucketVolume(state, bucket, fill))
+    return [true, false].map((fill: boolean): BucketsState => {
+      return getStateWithUpdatedBucketVolume(state, bucket, fill)
+    })
   })
   .flat();
 
 /*
 * Return two buckets after moving water from one to another
 */
-const moveWaterFromOneBucketToAnother = (state: BucketsState, targetBucketPrototype: Bucket): BucketsState => {
+const moveWaterFromOneBucketToAnother = (
+  state: BucketsState,
+  targetBucketPrototype: Bucket
+): BucketsState => {
   const isTargetFirstBucket = state.firstBucket === targetBucketPrototype;
 
   const sourceBucketPrototype = isTargetFirstBucket ? state.secondBucket : state.firstBucket;
@@ -49,7 +58,9 @@ const moveWaterFromOneBucketToAnother = (state: BucketsState, targetBucketProtot
     sourceBucket.setCurrentVolume(0);
   }
 
-  const [firstBucket, secondBucket] = isTargetFirstBucket ? [ targetBucket, sourceBucket ] : [ sourceBucket, targetBucket ]
+  const [firstBucket, secondBucket] = isTargetFirstBucket
+    ? [targetBucket, sourceBucket]
+    : [sourceBucket, targetBucket]
 
   return {
     firstBucket,
