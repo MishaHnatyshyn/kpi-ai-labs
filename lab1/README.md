@@ -10,7 +10,7 @@
 ## Search algorithm according to variant
 DFS with depth limitation
 
-## Run
+## Execution
 
 Install dependencies
 ```shell
