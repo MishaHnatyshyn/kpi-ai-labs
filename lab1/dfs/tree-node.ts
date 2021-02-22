@@ -1,10 +1,16 @@
 import { Bucket } from './bucket';
 
+/*
+* Interface that represents amount of water in our buckets
+*/
 export interface BucketsState {
   firstBucket: Bucket;
   secondBucket: Bucket;
 }
 
+/*
+* Class that represents node of tree
+*/
 export class TreeNode {
   private children: TreeNode[];
   private readonly parent: TreeNode;

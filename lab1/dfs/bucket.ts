@@ -1,3 +1,6 @@
+/*
+* Class that represents bucket for water
+*/
 export class Bucket {
   private readonly maxVolume: number;
   private currentVolume: number;
