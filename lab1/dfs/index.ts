@@ -2,7 +2,7 @@ import { TreeNode } from './tree-node';
 import { generateChildren, isMaxDepth, isTaskComplete } from './helpers';
 
 /*
-* Depth first search implementation
+* Depth first search with depth limitation implementation
 */
 export const dfs = (node: TreeNode, currentDepth: number, maxDepth: number): TreeNode | null => {
   // return current node if it satisfies our search condition
