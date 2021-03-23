@@ -1,0 +1,16 @@
+{
+  "name": "lab4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node output.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.3"
+  }
+}
